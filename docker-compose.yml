@@ -1,0 +1,20 @@
+services:
+  db16:
+    image: postgres:16-alpine
+    container_name: db16
+    environment:
+      POSTGRES_PASSWORD: abc123
+    ports:
+      - "5432:5432"
+    volumes:
+      - ~/docker/volumes/postgresql16/data:/var/lib/postgresql/data
+
+  pgadmin4_16:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_16
+    environment:
+      PGADMIN_DEFAULT_EMAIL: qt20001@ues.edu.sv
+      PGADMIN_DEFAULT_PASSWORD: abc123
+      PGADMIN_LISTEN_PORT: "5050"
+    ports:
+      - "5050:5050"
